@@ -94,7 +94,7 @@ public class TextAnalyzer {
     }
 
     public String calculateEducationalLevel(){
-        double fleschIndex = this.getFleschIndex();
+        double fleschIndex = getFleschIndex();
         if (fleschIndex >= 91){
             return "5th grade";
         } else if (fleschIndex >= 81){
