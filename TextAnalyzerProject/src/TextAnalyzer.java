@@ -89,7 +89,7 @@ public class TextAnalyzer {
         return (int)Math.round(fleschIndex);
     }
     public int getColemanLiau(){
-        return (int)Math.round(5.89 * ((double)getNumCharacters()/getNumWords())
+        return (int)(5.89 * ((double)getNumCharacters()/getNumWords())
                 - .3 * ((double)getNumSentences()/getNumWords()) - 15.8);
     }
 

@@ -49,6 +49,7 @@ public class Matrix {
             }
             RC++;
         }
+        Freader.close();
     }
     public Matrix(String string){
         myRows = 0;
