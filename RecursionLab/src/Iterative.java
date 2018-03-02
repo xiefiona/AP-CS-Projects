@@ -1,13 +1,13 @@
-public class Iterative {
+public class Iterative extends Operations{
 
-    public static long summation(int num){
+    public long summation(int num){
         long sum = 0;
         for (int i = num; i > 0; i--){
             sum += i;
         }
         return sum;
     }
-    public static long exponentiation(int base, int power){
+    public long exponentiation(int base, int power){
         long exponential = 1;
         for (int i = 0; i < power; i++){
             exponential *= base;
@@ -19,7 +19,7 @@ public class Iterative {
 
         return exponential;
     }
-    public static long fibonacci(int k){
+    public long fibonacci(int k){
         int low = 0;
         int high = 1;
         int sum;
@@ -31,14 +31,14 @@ public class Iterative {
         return low;
     }
 
-    public static boolean isEven(int num){
+    public boolean isEven(int num){
         if (num % 2 == 0){
             return true;
         } else {
             return false;
         }
     }
-    public static boolean isOdd(int num){
+    public boolean isOdd(int num){
         if (num % 2 == 1){
             return true;
         } else {
@@ -46,23 +46,23 @@ public class Iterative {
         }
     }
 
-    public static boolean palindrome(String string){
-        boolean ans = true;
-        String[] splitArr = string.split("");
-        for (int i = 0; i < string.length(); i++){
-            if (splitArr[i].equals(splitArr[string.length() - 1 - i])){
-
-            } else {
-                ans = false;
+    public boolean palindrome(String string){
+        String newString = string.replaceAll(" ", "").toLowerCase();
+        int start = 0;
+        int end = newString.length() -1;
+        while (start < end){
+            if (newString.charAt(start) != newString.charAt(end)){
+                return false;
             }
+            start++;
+            end--;
         }
-        return ans;
+        return true;
     }
-    public static String reverse(String string){
-        String[] splitArr = string.split("");
+    public String reverse(String string){
         String reverseWord = "";
         for (int i = string.length() - 1; i >= 0; i--){
-            reverseWord += splitArr[i];
+            reverseWord += string.charAt(i);
         }
         return reverseWord;
     }
