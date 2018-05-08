@@ -30,7 +30,7 @@ public class FionaActor extends Peon {
         if (myactions.size() == 1) {
             wheatMode = false;
         }
-        if (getWheatPositions().size() <= 0 ) {
+        if (getEnergy() > (getWeakestPeon().getEnergy() + 40) || getWheatPositions().size() <= 0) {
             fightPeon();
         }
         steps++;
@@ -159,21 +159,21 @@ public class FionaActor extends Peon {
             myactions.add(moveToGradual(new DynamicValue<Location>() {
                 @Override
                 public Location getValue() {
-                    return getWeakestPeon();
+                    return getWeakestPeon().getLocation();
                 }
             }));
             attackMode = true;
         }
     }
 
-    public Location getWeakestPeon(){
+    public ActiveActor getWeakestPeon(){
         ActiveActor weakestActor = (ActiveActor)getGrid().get(getOtherPeons().get(0));
         for (int i = 0; i < getOtherPeons().size(); i++){
             if ((((ActiveActor)(getGrid().get(getOtherPeons().get(i)))).getHealth() < weakestActor.getHealth())) {
                 weakestActor = (ActiveActor)getGrid().get(getOtherPeons().get(i));
             }
         }
-        return weakestActor.getLocation();
+        return weakestActor;
 
     }
 
