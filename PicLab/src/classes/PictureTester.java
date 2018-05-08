@@ -104,6 +104,7 @@ public class PictureTester
   public static void testCollage()
   {
     Picture canvas = new Picture("src/images/640x480.jpg");
+    canvas.explore();
     canvas.createCollage();
     canvas.explore();
   }
@@ -129,10 +130,11 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
+
+    testZeroBlue();
+    testKeepOnlyBlue();
     testNegate();
     testGrayscale();
     testFixUnderwater();
@@ -147,6 +149,7 @@ public class PictureTester
     testCopy();
     testEdgeDetection();
     testEdgeDetection2();
+
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);

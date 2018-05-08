@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="361.0" prefWidth="615.0" style="-fx-background-color: linear-gradient(to right, #fc4a1a, #f7b733);" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <children>
+      <MenuBar fx:id="mnuBar" prefHeight="29.0" prefWidth="615.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Operation">
+               <items>
+                  <Menu mnemonicParsing="false" text="Math">
+                     <items>
+                        <RadioMenuItem fx:id="mnuFac" mnemonicParsing="false" onAction="#handleButtonAction" text="Factorial" />
+                        <RadioMenuItem fx:id="mnuFib" mnemonicParsing="false" onAction="#handleButtonAction" text="Fibonacci" />
+                        <RadioMenuItem fx:id="mnuSum" mnemonicParsing="false" onAction="#handleButtonAction" text="Summation" />
+                        <RadioMenuItem fx:id="mnuExp" mnemonicParsing="false" onAction="#handleButtonAction" text="Exponentiation" />
+                        <RadioMenuItem fx:id="mnuGCD" mnemonicParsing="false" onAction="#handleButtonAction" text="GCD" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Strings">
+                     <items>
+                        <RadioMenuItem fx:id="mnuRev" mnemonicParsing="false" onAction="#handleButtonAction" text="Reverse" />
+                        <RadioMenuItem fx:id="mnuPal" mnemonicParsing="false" onAction="#handleButtonAction" text="Palindrome" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Binary">
+                     <items>
+                        <RadioMenuItem fx:id="mnufBin" mnemonicParsing="false" onAction="#handleButtonAction" text="from Binary" />
+                        <RadioMenuItem fx:id="mnutBin" mnemonicParsing="false" onAction="#handleButtonAction" text="to Binary" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Binary Trees">
+                    <items>
+                        <RadioMenuItem fx:id="mnuBTree" mnemonicParsing="false" onAction="#handleButtonAction" text="Binary Tree" />
+                        <RadioMenuItem fx:id="mnuCTree" mnemonicParsing="false" onAction="#handleButtonAction" text="Rainbow Binary Tree" />
+                        <RadioMenuItem fx:id="mnuBTreeM" mnemonicParsing="false" onAction="#handleButtonAction" text="Binary Tree Mirrored" />
+                        <RadioMenuItem fx:id="mnuCTreeM" mnemonicParsing="false" onAction="#handleButtonAction" text="Rainbow Binary Tree Mirrored" />
+                    </items>
+                  </Menu>
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" onAction="#handleButtonAction" text="Mode">
+               <items>
+                  <RadioMenuItem fx:id="mnuRec" mnemonicParsing="false" onAction="#handleButtonAction" text="Recursion" />
+                  <RadioMenuItem fx:id="mnuIte" mnemonicParsing="false" onAction="#handleButtonAction" text="Iterative" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutX="14.0" layoutY="244.0" prefHeight="104.0" prefWidth="333.0" style="-fx-background-color: #2196F3; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-border-radius: 5; -fx-border-image-width: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="5.0" text="Operation" textFill="WHITE">
+               <font>
+                  <Font name="Raleway" size="13.0" />
+               </font></Label>
+            <Label layoutX="179.0" layoutY="5.0" text="Type" textFill="WHITE">
+               <font>
+                  <Font name="Raleway" size="13.0" />
+               </font></Label>
+            <JFXTextField fx:id="txtOperation" editable="false" focusColor="#f36e21" layoutX="14.0" layoutY="52.0" prefHeight="28.0" prefWidth="140.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Raleway" size="14.0" />
+               </font></JFXTextField>
+            <JFXTextField fx:id="txtType" editable="false" focusColor="#f36e21" layoutX="179.0" layoutY="52.0" prefHeight="28.0" prefWidth="140.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Raleway" size="14.0" />
+               </font></JFXTextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="12.0" layoutY="122.0" prefHeight="104.0" prefWidth="333.0" style="-fx-background-color: #2196F3; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-border-radius: 5; -fx-border-image-width: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="5.0" text="Input" textFill="WHITE">
+               <font>
+                  <Font name="Raleway" size="13.0" />
+               </font></Label>
+            <JFXTextField fx:id="txtInput" focusColor="#f36e21" layoutX="14.0" layoutY="52.0" prefHeight="28.0" prefWidth="313.0" style="-fx-text-fill: #ffffff; -fx-prompt-text-fill: #ffffff;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Raleway" size="14.0" />
+               </font></JFXTextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="366.0" layoutY="122.0" prefHeight="104.0" prefWidth="236.0" style="-fx-background-color: #2196F3; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-border-radius: 5; -fx-border-image-width: 5;">
+         <children>
+            <Label layoutX="14.0" layoutY="5.0" text="Output" textFill="WHITE" />
+            <JFXTextField fx:id="txtOutput" editable="false" focusColor="#f36e21" layoutX="13.0" layoutY="52.0" prefHeight="28.0" prefWidth="216.0" style="-fx-text-fill: #ffffff;" unFocusColor="WHITE">
+               <font>
+                  <Font name="Raleway" size="14.0" />
+               </font></JFXTextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="366.0" layoutY="244.0" prefHeight="104.0" prefWidth="236.0" style="-fx-background-color: #2196F3; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-border-radius: 5; -fx-border-image-width: 5;">
+         <children>
+            <Label layoutX="11.0" layoutY="6.0" text="Controls" textFill="WHITE">
+               <font>
+                  <Font name="Raleway" size="13.0" />
+               </font></Label>
+            <JFXButton fx:id="btnCalc" buttonType="RAISED" layoutX="11.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleButtonAction" ripplerFill="#f36e21" style="-fx-background-color: #ffffff;" text="Calculate">
+               <font>
+                  <Font name="Raleway" size="18.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="127.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="29.0" prefWidth="95.0" ripplerFill="#f36e21" style="-fx-background-color: #ffffff;" text="Clear">
+               <font>
+                  <Font name="Raleway" size="18.0" />
+               </font></JFXButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="170.0" layoutY="48.0" text="Recursion Project" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Raleway" size="33.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

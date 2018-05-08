@@ -3,7 +3,7 @@ public class Book {
     String myAuthor;
 
     public Book(){
-        Book("","");
+        myTitle = myAuthor = "";
     }
     public Book(String title, String author){
         myTitle = title;

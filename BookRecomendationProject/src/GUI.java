@@ -1,48 +1,71 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class GUI extends JFrame {
     //output books, readers, add/remove, recommend, most similar
     private JList books = new JList();              //list of all books
+    private DefaultListModel ImBooks = new DefaultListModel();
+    private JScrollPane scrollPane = new JScrollPane();
+
     private JList readers = new JList();            //list of all readers
+    private DefaultListModel ImReaders = new DefaultListModel();
+    private JScrollPane scrollPane2 = new JScrollPane();
+
     private JTextArea methodB = new JTextArea();    //Most common reader and book with method B
 
     private JMenuBar menubar = new JMenuBar();				//menu
-    private JMenu calculate = new JMenu("File");
+    private JMenu book = new JMenu("Book");
     private JMenuItem add = new JMenuItem("Add");
     private JMenuItem delete = new JMenuItem("Delete");
     private JMenuItem replace = new JMenuItem("Replace");
-    private JMenuItem clear = new JMenuItem("Clear");
+    private JMenu reader = new JMenu("Reader");
+    private JMenuItem addR = new JMenuItem("Add");
+    private JMenuItem deleteR = new JMenuItem("Delete");
+    private JMenuItem replaceR = new JMenuItem("Replace");
 
-    private JLabel lbl1 = new JLabel("Books: ");
-    private JLabel lbl2 = new JLabel("Readers: ");
-    private JLabel lbl3 = new JLabel("Recommendation (Method B): ");
-
-    private JPanel mainPane = new JPanel(new GridLayout(1,4));  //for the list of books and readers
-    private JPanel outputPane = new JPanel(new GridLayout(1,2));    //for the output of recommendations
+    private JPanel mainPane = new JPanel(new GridLayout(2,2));
 
     public GUI(){
         setTitle("Book Recommendation Project");
         setSize(400,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        add(mainPane, BorderLayout.NORTH);
-        mainPane.add(lbl1);
+        add(mainPane);
         mainPane.add(books);
-        mainPane.add(lbl2);
+        mainPane.add(methodB);
         mainPane.add(readers);
+        mainPane.add(scrollPane);
+        scrollPane.setViewportView(books);
 
-        add(outputPane, BorderLayout.SOUTH);
-        outputPane.add(lbl3);
-        outputPane.add(methodB);
+        mainPane.add(scrollPane2);
+        scrollPane2.setViewportView(readers);
 
-        calculate.add(add);
-        calculate.add(delete);
-        calculate.add(replace);
-        calculate.add(clear);
-        menubar.add(calculate);
+        book.add(add);
+        book.add(delete);
+        book.add(replace);
+        reader.add(addR);
+        reader.add(deleteR);
+        reader.add(replaceR);
+        menubar.add(book);
+        menubar.add(reader);
         setJMenuBar(menubar);
 
+
+        Booklist book = new Booklist("src/books.txt");
+        for (int i=0;i<book.getNumBooks();i++){
+            ImBooks.addElement(book.getBook(i).toString());
+        }
+        books.setModel(ImBooks);
+
+        ReaderList reader = new ReaderList("src/readers.txt");
+        for (int i = 0;i<reader.getNumReaders();i++){
+            ImReaders.addElement(reader.getReader(i).toString());
+        }
+        readers.setModel(ImReaders);
+
         setVisible(true);
+
+        //change the 2 lists
     }
 }
