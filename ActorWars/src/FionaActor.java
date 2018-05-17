@@ -30,7 +30,7 @@ public class FionaActor extends Peon {
         if (myactions.size() == 1) {
             wheatMode = false;
         }
-        if (getEnergy() > (getWeakestPeon().getEnergy() + 40) || getWheatPositions().size() <= 0) {
+        if (canKill() || getWheatPositions().size() <= 0) {
             fightPeon();
         }
         steps++;
@@ -184,7 +184,7 @@ public class FionaActor extends Peon {
             return true;
         }
         else if (getOtherPeons().size() > 0){
-            myactions.add(Action.turn(LocationFinder.directionTo(getLocation(), getWeakestPeon())));
+            myactions.add(Action.turn(LocationFinder.directionTo(getLocation(), getWeakestPeon().getLocation())));
         }
         return false;
     }
@@ -201,5 +201,9 @@ public class FionaActor extends Peon {
     //returns distance between two locations
     public int getDistance(Location loc1, Location loc2){
         return (int) Math.floor(Math.sqrt((loc1.getRow() - loc2.getRow())*(loc1.getRow() - loc2.getRow()) + (loc1.getCol() - loc2.getCol()) * (loc1.getCol() - loc2.getCol())) + .5);
+    }
+
+    public boolean canKill(){
+        return Math.pow(getEnergy() + 4, .5) + 2 > getWeakestPeon().getHealth();
     }
 }
